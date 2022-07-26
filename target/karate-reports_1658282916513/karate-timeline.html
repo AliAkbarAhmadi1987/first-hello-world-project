@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/resources\/features\/tokenVerifyTest[1:3]","start":1658282839559,"end":1658282842044,"title":"src\/test\/resources\/features\/tokenVerifyTest[1:3] 22:07:19.559-22:07:22.044 generate token with valid user password"},{"id":2,"group":1,"content":"src\/test\/resources\/features\/tokenVerifyTest[2:11]","start":1658282842063,"end":1658282842427,"title":"src\/test\/resources\/features\/tokenVerifyTest[2:11] 22:07:22.063-22:07:22.427 generate token with invalid user password"},{"id":3,"group":1,"content":"src\/test\/resources\/features\/tokenVerifyTest[3:21]","start":1658282842438,"end":1658282843265,"title":"src\/test\/resources\/features\/tokenVerifyTest[3:21] 22:07:22.438-22:07:23.265 valid token"},{"id":4,"group":1,"content":"src\/test\/resources\/features\/tokenVerifyTest[4:35]","start":1658282843273,"end":1658282843603,"title":"src\/test\/resources\/features\/tokenVerifyTest[4:35] 22:07:23.273-22:07:23.603 verify invaid token"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
